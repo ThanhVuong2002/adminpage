@@ -1,6 +1,5 @@
 import React from 'react';
-import { RiStoreLine, RiShoppingCartLine, RiUserLine, RiFileListLine } from 'react-icons/ri';
-
+import {  RiFileListLine, RiStoreLine, RiShoppingCartLine, RiUserLine } from 'react-icons/ri';
 
 const Menu = ({ onMenuClick }) => {
   const handleClick = (menu) => {
@@ -10,6 +9,9 @@ const Menu = ({ onMenuClick }) => {
   return (
     <div className="menu">
       <ul>
+        <li onClick={() => handleClick('Statistics')}>
+          <RiFileListLine /> Statistics
+        </li>
         <li onClick={() => handleClick('Shop')}>
           <RiStoreLine /> Shop
         </li>

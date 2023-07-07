@@ -69,8 +69,8 @@ class ShowShops extends Component {
           </thead>
           <tbody>
             {this.state.shops.map((shop) => (
-              <tr key={shop.shop_id}>
-                <td>{shop.shop_id}</td>
+              <tr key={shop.id}>
+                <td>{shop.id}</td>
                 <td>{shop.name}</td>
                 <td>{shop.location}</td>
                 <td>{shop.description}</td>

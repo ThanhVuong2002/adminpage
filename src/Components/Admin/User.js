@@ -18,41 +18,26 @@ class ShowUsers extends Component {
     }
   }
 
-//   performAction = async (userId) => {
-//     if (window.confirm("Are you sure?")) {
-//         try {
-//             const response = await axios.put(`http://localhost:8000/api/users_update-statue/${userId}`);
-//             alert("Chỉnh sửa thành công");
-//             const response1 = await axios.get("http://localhost:8000/api/get-user");
-//             this.setState({ users: response1.data });
-                
-            
-//         }catch (error) {
-//             alert("bị lỗi")
-//             console.error("Error updating user status:", error);
-//         }
-//     }
-// };
-performAction = async (userId) => {
-  if (window.confirm("Are you sure?")) {
-      try {
-          const response = await axios.get(`http://localhost:8000/api/users_update-statue/${userId}`);
-          if (response.data.message) {
-              this.setState((prevState) => {
-                  const updatedUsers = prevState.users.map((user) => {
-                      if (user.user_id === userId) {
-                          return { ...user, isActive: !user.isActive };
-                      }
-                      return user;
+    performAction = async (user_id) => {
+      if (window.confirm("Are you sure?")) {
+          try {
+              const response = await axios.get(`http://localhost:8000/api/users_update-statue/${user_id}`);
+              if (response.data.message) {
+                  this.setState((prevState) => {
+                      const updatedUsers = prevState.users.map((user) => {
+                          if (user.id === user_id) {
+                              return { ...user, isActive: !user.isActive };
+                          }
+                          return user;
+                      });
+                      return { users: updatedUsers };
                   });
-                  return { users: updatedUsers };
-              });
+              }
+          } catch (error) {
+              console.error("Error updating user status:", error);
           }
-      } catch (error) {
-          console.error("Error updating user status:", error);
       }
-  }
-};
+    };
 
 
   render() {
@@ -93,7 +78,7 @@ performAction = async (userId) => {
           <tbody>
             {this.state.users.map((user) => (
               <tr key={user.id}>
-                <td>{user.user_id}</td>
+                <td>{user.id}</td>
                 <td>{user.name}</td>
                 <td>{user.email}</td>
                 <td>{user.role_id}</td>
@@ -101,14 +86,14 @@ performAction = async (userId) => {
                   {user.isActive==0 ? (
                     <button
                       className="inactive-button"
-                      onClick={() => this.performAction(user.user_id)}
+                      onClick={() => this.performAction(user.id)}
                     >
                       Inactive
                     </button>
                   ) : (
                     <button
                       className="active-button"
-                      onClick={() => this.performAction(user.user_id)}
+                      onClick={() => this.performAction(user.id)}
                     >
                       active
                     </button>

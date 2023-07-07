@@ -1,9 +1,11 @@
 import React from 'react';
-import { RiStoreLine, RiShoppingCartLine, RiUserLine, RiFileListLine } from 'react-icons/ri';
+import {  RiFileListLine, RiStoreLine, RiShoppingCartLine, RiUserLine } from 'react-icons/ri';
 
 const Sidebar = ({ selectedMenu }) => {
   const renderIcon = () => {
     switch (selectedMenu) {
+      case 'Statistics':
+        return  <RiFileListLine />;
       case 'Shop':
         return <RiStoreLine />;
       case 'Product':

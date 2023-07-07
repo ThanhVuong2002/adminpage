@@ -4,7 +4,7 @@ import Menu from './Menu';
 import Content from './Content';
 
 const AdminPage = () => {
-  const [selectedMenu, setSelectedMenu] = useState('Shop');
+  const [selectedMenu, setSelectedMenu] = useState('Statistics');
 
   const handleMenuClick = (menu) => {
     setSelectedMenu(menu);

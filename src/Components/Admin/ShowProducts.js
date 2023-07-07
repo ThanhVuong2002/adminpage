@@ -53,8 +53,8 @@ const ShowProducts = () => {
         </thead>
         <tbody>
           {products.map((product) => (
-            <tr key={product.product_id}>
-              <td>{product.product_id}</td>
+            <tr key={product.id}>
+              <td>{product.id}</td>
               <td>{product.name}</td>
               <td>{product.price}</td>
               <td>{product.image}</td>

@@ -38,6 +38,8 @@
   /* content */
   .content {
     padding: 20px;
+    height: 780px;
+    overflow: scroll;
   }
   
   .content div {
@@ -46,9 +48,12 @@
 
   /* Menu */
   .menu {
-    margin-bottom: 20px;
+    height: auto;
     background-color: black;
+    overflow: auto;
+    min-height: 900px;
   }
+  
   
   .menu ul {
     list-style-type: none;
@@ -106,12 +111,12 @@
   }
 
   /* sidebar */
-  /* Sidebar.css */
+  
 
 .sidebar {
     display: flex;
     align-items: center;
-    background-color:#800000;
+    background-color:#960d0d;
     padding: 20px;
     color: white;
     
@@ -181,6 +186,29 @@ background-color: #032a10;
 .layout-admin{
   display: grid;
   grid-template-columns: 20% 80%;
+}
+/* Statistics */
+.statistics-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.statistics-item {
+  flex-basis: 45%;
+  padding: 100px;
+  border: 1px solid  #9fb80d;
+  border-radius: 10px;
+  text-align: center;
+  background-color: #cfef1c;
+}
+
+.statistics-item h2 {
+  margin-top: 0;
+}
+
+.statistics-item p {
+  font-size: 24px;
+  font-weight: bold;
 }
 
 
